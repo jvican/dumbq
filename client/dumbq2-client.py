@@ -467,9 +467,9 @@ class ProjectManager:
             self.logger.error(self.feedback["no_free_tty"],
                               format(container_name))
 
-        start_console = Process(target=start_console_daemon(free_id),
-                                args=(free_id, container_name))
-        return free_id and start_console.start()
+        start_terminal = Process(target=start_console_daemon,
+                                 args=(free_id, container_name))
+        return free_id and start_terminal.start()
 
     def run_project(self):
         def start_container(project_config):
